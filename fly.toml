@@ -1,4 +1,6 @@
-app = "postgres-ha-example"
+# fly.toml file generated for postgres-walg-test on 2022-05-07T21:35:44+02:00
+
+app = "postgres-walg-test"
 
 kill_signal = "SIGTERM"
 kill_timeout = 300
@@ -35,7 +37,16 @@ services = []
 
 [env]
   BACKEND_STORE = "consul"
-  PRIMARY_REGION = "ord"
+  PRIMARY_REGION = "ams"
+
+  ENABLE_WALG = "true"
+
+  PGHOST = "localhost"
+  PGPORT = "5432"
+  PGUSER = "postgres"
+
+  WALG_FILE_PREFIX = "/tmp/wal-g-test-data"
+
 
 [experimental]
   allowed_public_ports = []
